@@ -287,7 +287,7 @@ extension DecodedMessagePackValue {
          return ByteCount(bigEndian: bytes.loadUnaligned(as: byteCountType))
       }
 
-      let data = try messageReader.read(byteCount: byteCount)
+      let data = try Data(messageReader.read(byteCount: byteCount))
 
       self = .binary(data)
    }
